@@ -13,7 +13,11 @@ fs.mkdirSync('frames', { recursive: true }); fs.mkdirSync('out', { recursive: tr
 const CHROME = ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'C:/Program Files/Google/Chrome/Application/chrome.exe',
   'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe', '/usr/bin/google-chrome'].find(f => fs.existsSync(f));
 if (!CHROME) { console.error('Не нашёл Google Chrome. Установи его с google.com/chrome и запусти снова.'); process.exit(1); }
-const browser = await puppeteer.launch({ headless: true, executablePath: CHROME, args: ['--allow-file-access-from-files'] });
+// В облаке (Linux) есть безэкранный Chrome — обычный там зависает на нескольких вкладках сразу
+const SHELL = '/opt/pw-browsers/chromium_headless_shell';
+const browser = fs.existsSync(SHELL)
+  ? await puppeteer.launch({ headless: 'shell', executablePath: SHELL, args: ['--no-sandbox', '--allow-file-access-from-files'] })
+  : await puppeteer.launch({ headless: true, executablePath: CHROME, args: ['--allow-file-access-from-files'] });
 const open = async () => {
   const p = await browser.newPage();
   await p.setViewport({ width: 1080, height: 1920 });
