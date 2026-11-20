@@ -37,6 +37,22 @@ else
   echo "Не удалось скачать свежие скиллы — работаю с теми, что в папке"
 fi
 
+# 6. Модель распознавания русской речи (время слов) — в ~/models
+M=sherpa-onnx-zipformer-ru-2024-09-18
+if [ ! -d "$HOME/models/$M" ]; then
+  mkdir -p "$HOME/models"
+  wget -q -O /tmp/m.tar.bz2 "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$M.tar.bz2" \
+    && tar xjf /tmp/m.tar.bz2 -C "$HOME/models" && rm -f /tmp/m.tar.bz2 \
+    || echo "Модель распознавания не скачалась"
+fi
+
+# 7. clean-premium: в облаке рендерить через безэкранный Chrome (обычный зависает)
+for f in "$HOME"/.claude/skills/clean-premium/template/render.mjs */.claude/skills/clean-premium/template/render.mjs; do
+  [ -f "$f" ] && [ -x /opt/pw-browsers/chromium_headless_shell ] || continue
+  grep -q chromium_headless_shell "$f" && continue
+  sed -i "s|headless: true, executablePath: CHROME, args: \['|headless: 'shell', executablePath: '/opt/pw-browsers/chromium_headless_shell', args: ['--no-sandbox', '|" "$f"
+done
+
 ffmpeg -version | head -1
 /usr/bin/google-chrome --version || true
 echo "Окружение для монтажа готово"
