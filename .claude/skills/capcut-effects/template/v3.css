@@ -1,0 +1,90 @@
+/* Шрифты: Gotham и Helvetica Neue берутся с компьютера (если установлены) или из a/fonts/; иначе — бесплатные Montserrat и Inter. Платные шрифты в скилл не кладём. */
+/* v3 — по референсу: тёмные полноэкранные вставки, элементы без рамок, Gotham + Helvetica Neue, белый + розовый */
+@font-face { font-family: G; src: local('Gotham Black'), local('Gotham-Black'), url(a/fonts/Gotham\ Black.ttf), local('Montserrat Black'), local('Montserrat-Black'), url(a/Montserrat-Black.ttf); font-weight: 900; }
+@font-face { font-family: G; src: local('Gotham Bold'), local('Gotham-Bold'), url(a/fonts/Gotham\ Bold.ttf), local('Montserrat Bold'), local('Montserrat-Bold'), url(a/Montserrat-Bold.ttf); font-weight: 700; }
+@font-face { font-family: G; src: local('Gotham Medium'), url(a/fonts/Gotham\ Medium.ttf), local('Montserrat Medium'), url(a/Montserrat-Medium.ttf); font-weight: 500; }
+@font-face { font-family: G; src: local('Gotham Book'), url(a/fonts/Gotham\ Book.ttf), local('Montserrat Regular'), local('Montserrat'), url(a/Montserrat-Regular.ttf); font-weight: 400; }
+@font-face { font-family: H; src: local('Helvetica Neue'), url(a/fonts/HelveticaNeueLTW1G-Roman.otf), url(a/Inter.ttf); font-weight: 400; }
+@font-face { font-family: H; src: local('Helvetica Neue Medium'), url(a/fonts/HelveticaNeueLTW1G-Md.otf), url(a/Inter.ttf); font-weight: 500; }
+@font-face { font-family: H; src: local('Helvetica Neue Bold'), url(a/fonts/HelveticaNeueLTW1G-Bd.otf), url(a/Inter.ttf); font-weight: 700; }
+@font-face { font-family: H; src: local('Helvetica Neue Black'), url(a/fonts/HelveticaNeueLTW1G-Blk.otf), url(a/Inter.ttf); font-weight: 900; }
+body { --pink: #ff7eb6; --pink2: #ffc2dc; --g: #8e8e93; --green: #30d158; --claude: #e07a55; font-family: H, sans-serif; }
+.v { position: absolute; }
+.pk { color: var(--pink); } .wh { color: #fff; } .gr { color: var(--g); }
+
+/* правый текст поверх спикера */
+.shade { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 45%, rgba(0,0,0,.35) 70%, rgba(0,0,0,.5)); }
+.rt { position: absolute; left: 1090px; width: 790px; font-family: G; font-weight: 900; line-height: .98; letter-spacing: -.01em; color: #fff; text-transform: uppercase; }
+.rt > div { display: block; }
+.rt span { display: inline-block; }
+
+/* полноэкранный фон */
+.v-bg { position: absolute; inset: 0; background: radial-gradient(70% 70% at 50% 40%, #121214, #070708 75%); }
+.v-bg.warm { background: radial-gradient(60% 55% at 85% 90%, rgba(224,122,85,.28), transparent 60%), radial-gradient(60% 60% at 10% 0%, rgba(80,90,140,.18), transparent 60%), #0b0b0d; }
+.chart { position: absolute; inset: 0; }
+
+/* таблица слева */
+.tbl { position: absolute; left: 110px; top: 210px; width: 640px; }
+.tbl .hd { font: 500 24px/1 H; color: var(--g); letter-spacing: .04em; text-transform: uppercase; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.14); }
+.tr { display: flex; align-items: center; gap: 22px; padding: 26px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+.tr .ic { width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center; font: 900 26px/1 G; color: #fff; flex: none; }
+.tr .t { flex: 1; font: 700 44px/1.05 G; color: #fff; } .tr .t small { display: block; font: 400 21px/1.3 H; color: var(--g); margin-top: 6px; text-transform: none; }
+.tr .st { font: 700 24px/1 H; color: var(--pink); }
+.rblk { position: absolute; left: 1150px; top: 330px; width: 700px; font: 900 80px/1 G; color: #fff; text-transform: uppercase; letter-spacing: -.01em; }
+.rblk .pk { display: block; margin-top: 18px; font-size: 76px; }
+.mid { position: absolute; left: 0; right: 0; text-align: center; }
+.mid .nm { font: 900 210px/1 G; color: #fff; letter-spacing: -.03em; }
+.mid .sl { font: 900 64px/1.1 G; color: var(--pink); text-transform: uppercase; margin-top: 18px; }
+.star { width: 150px; height: 150px; display: inline-block; vertical-align: middle; }
+
+/* окна без рамок с перспективой */
+.fw { position: absolute; border-radius: 22px; overflow: hidden; box-shadow: 0 60px 120px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.08); }
+.fw img { display: block; width: 100%; }
+.chip { position: absolute; padding: 16px 26px; border-radius: 40px; background: rgba(30,30,32,.9); border: 1px solid rgba(255,255,255,.12); font: 500 26px/1 H; color: #fff; white-space: nowrap; display: flex; align-items: center; gap: 12px; box-shadow: 0 20px 40px rgba(0,0,0,.5); }
+.chip svg { width: 30px; height: 30px; }
+.cap3 { position: absolute; font: 900 92px/1 G; text-transform: uppercase; letter-spacing: -.01em; color: #fff; }
+
+/* сетка расходов как «35+» */
+.bign { position: absolute; left: 90px; top: 300px; font: 900 330px/.9 G; color: #fff; letter-spacing: -.04em; }
+.bign .pk { color: var(--pink); }
+.bigl { position: absolute; left: 100px; top: 640px; font: 700 64px/1.1 H; color: #8e8e93; }
+.grid { position: absolute; left: 760px; top: 70px; width: 1060px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+.card { height: 116px; border-radius: 22px; background: #161618; border: 1px solid rgba(255,255,255,.07); padding: 18px 22px; position: relative; }
+.card .c { font: 500 17px/1 H; color: #6e6e73; } .card .n { font: 700 27px/1.15 G; color: #fff; margin-top: 10px; max-width: 220px; }
+.card .p { font: 500 19px/1 H; color: #8e8e93; margin-top: 10px; }
+.tg { position: absolute; right: 20px; bottom: 20px; width: 66px; height: 40px; border-radius: 20px; background: #3a3a3c; }
+.tg i { position: absolute; top: 3px; left: 3px; width: 34px; height: 34px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.4); }
+
+/* орбита + сумма + месяцы */
+.ringo { position: absolute; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.18); translate: -50% -50%; }
+.cic { position: absolute; width: 130px; height: 130px; border-radius: 32px; background: linear-gradient(160deg, #fff, #f1efe9); translate: -50% -50%; display: grid; place-items: center; box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+.cic svg { width: 80px; height: 80px; }
+.mn { position: absolute; width: 270px; border-radius: 16px; overflow: hidden; background: #1c1c1e; translate: -50% -50%; box-shadow: 0 24px 50px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.1); font: 500 14px/1.2 H; color: #e5e5ea; }
+.mn .mh { padding: 9px 12px; background: #2a2a2c; font: 700 14px/1 H; }
+.mn table { width: 100%; border-collapse: collapse; } .mn td { border: 1px solid #333; padding: 6px 8px; font-size: 13px; } .mn tr:first-child td { color: #6ee7a0; font-weight: 700; }
+.mn .trk { padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; } .mn .trk div { height: 14px; border-radius: 3px; }
+.mn .flow { display: flex; justify-content: space-between; align-items: center; padding: 16px 12px; } .mn .flow span { padding: 8px; border-radius: 8px; background: #2c2c2e; font: 700 13px/1 H; }
+.old { position: absolute; left: 1090px; top: 585px; font: 900 96px/1 G; color: #fff; letter-spacing: -.02em; white-space: nowrap; }
+.old small { font: 500 26px/1 H; color: var(--g); margin-left: 16px; letter-spacing: 0; }
+.old .ln { position: absolute; left: -6px; top: 50%; height: 8px; width: 0; background: var(--pink); border-radius: 4px; }
+.new { position: absolute; left: 1090px; top: 700px; font: 900 150px/1 G; color: var(--pink); letter-spacing: -.03em; white-space: nowrap; }
+.new small { font: 700 34px/1 H; color: #fff; margin-left: 14px; letter-spacing: 0; }
+.months { position: absolute; left: 1090px; right: 0; top: 905px; height: 80px; }
+.months .yr { position: absolute; left: 0; top: -40px; font: 700 26px/1 G; color: #8e8e93; }
+.months .base { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgba(255,255,255,.14); }
+.months .fill { position: absolute; left: 0; top: 0; height: 2px; width: 0; background: linear-gradient(90deg, rgba(255,126,182,.2), var(--pink)); }
+.months .dot { position: absolute; top: -8px; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: #fff; box-shadow: 0 0 20px var(--pink), 0 0 40px var(--pink); }
+.months .m { position: absolute; top: 22px; translate: -50% 0; font: 500 20px/1 H; color: #8e8e93; }
+.months .m::before { content: ''; position: absolute; left: 50%; top: -24px; width: 1px; height: 8px; background: rgba(255,255,255,.3); }
+
+/* поле ввода Claude */
+.ibox { position: absolute; left: 1080px; top: 690px; width: 800px; height: 200px; border-radius: 28px; background: #1e1e1e; border: 2px solid #8a5a48; box-shadow: 0 0 40px rgba(224,122,85,.18), 0 30px 60px rgba(0,0,0,.5); }
+.ibox .tx { position: absolute; left: 30px; top: 30px; right: 30px; font: 400 32px/1.25 H; color: #fff; }
+.ibox .tx i { display: inline-block; width: 3px; height: 34px; background: #fff; vertical-align: -6px; margin-left: 2px; }
+.ibox .bp { position: absolute; left: 26px; bottom: 22px; padding: 12px 18px; border-radius: 12px; background: #3a2421; color: #f08a6c; font: 500 25px/1 H; }
+.ibox .op { position: absolute; right: 100px; bottom: 34px; font: 400 28px/1 H; color: #a1a1a6; }
+.ibox .sd { position: absolute; right: 22px; bottom: 18px; width: 60px; height: 60px; border-radius: 50%; background: #3a3a3c; display: grid; place-items: center; color: #fff; font: 700 30px/1 H; }
+.bub { position: absolute; right: 40px; max-width: 700px; padding: 18px 24px; border-radius: 22px; background: #2a2a2c; font: 400 26px/1.3 H; color: #fff; }
+.bub b { color: var(--pink); font-weight: 700; margin-right: 8px; }
+.step { position: absolute; left: 1090px; top: 110px; font: 900 76px/1 G; text-transform: uppercase; }
+.reply { position: absolute; left: 1090px; padding: 14px 22px; border-radius: 18px; background: rgba(224,122,85,.14); border: 1px solid rgba(224,122,85,.45); color: #ffb89e; font: 500 26px/1 H; }

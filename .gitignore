@@ -3,6 +3,11 @@ node_modules/
 __pycache__/
 .env
 /input/
+/output/
 /work/
 .DS_Store
 Thumbs.db
+
+# Исходники тяжёлые — в GitHub не отправляем, только пустую папку
+/01_исходники/*
+!/01_исходники/.gitkeep

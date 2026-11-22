@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8"><title>клоди v3</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="v3.css">
+</head><body>
+<template id="star"><svg viewBox="-50 -50 100 100"><g fill="#e07a55">
+  <rect x="-6" y="-46" width="12" height="40" rx="6"/><rect x="-6" y="-46" width="12" height="40" rx="6" transform="rotate(45)"/>
+  <rect x="-6" y="-46" width="12" height="40" rx="6" transform="rotate(90)"/><rect x="-6" y="-46" width="12" height="40" rx="6" transform="rotate(135)"/>
+  <rect x="-6" y="-46" width="12" height="40" rx="6" transform="rotate(180)"/><rect x="-6" y="-46" width="12" height="40" rx="6" transform="rotate(225)"/>
+  <rect x="-6" y="-46" width="12" height="40" rx="6" transform="rotate(270)"/><rect x="-6" y="-46" width="12" height="40" rx="6" transform="rotate(315)"/></g></svg></template>
+
+<!-- 1. ХУК 0–6.85: справа крупный текст, белый + розовый -->
+<section class="scene" data-piece="01_hook" data-s="0" data-e="6.85" data-cut="hard" data-sfx="none">
+  <div class="shade"></div>
+  <div class="rt" style="top:200px">
+    <div style="font-size:62px"><span data-in="0.0" data-from="bottom" data-dist="30" data-out="2.95" data-sfx="whoosh" data-vol="0.15">какой-то</span></div>
+    <div class="pk" style="font-size:168px;margin:6px 0"><span data-in="0.46" data-pop data-out="2.95" data-sfx="pop" data-vol="0.14">CLAUDE</span></div>
+    <div style="font-size:74px"><span data-in="0.8" data-from="bottom" data-dist="30" data-out="2.95">менің</span> <span data-in="1.12" data-from="bottom" data-dist="30" data-out="2.95">жұмысымды</span></div>
+    <div style="font-size:74px"><span data-in="1.6" data-from="bottom" data-dist="30" data-out="2.95">алып</span> <span data-in="1.8" data-from="bottom" data-dist="30" data-out="2.95">қоймайтын</span></div>
+    <div class="pk" style="font-size:96px;margin-top:6px"><span data-in="2.18" data-from="bottom" data-dist="30" data-out="2.95">шығар?</span></div>
+  </div>
+  <div class="rt" style="top:220px">
+    <div style="font-size:78px"><span data-in="3.34" data-from="bottom" data-dist="30" data-sfx="whoosh" data-vol="0.15">Бауырлар-ау,</span></div>
+    <div style="font-size:78px"><span data-in="4.44" data-from="bottom" data-dist="30">алғанда</span></div>
+    <div style="font-size:96px;margin-top:6px"><span data-in="5.16" data-from="bottom" data-dist="30">бір</span> <span data-in="5.42" data-from="bottom" data-dist="30">емес</span></div>
+    <div class="pk" style="font-size:190px;margin:4px 0"><span data-in="5.7" data-pop data-sfx="hit" data-vol="0.35">ЕКІ</span> <span data-in="6.18" data-pop>РЕТ</span></div>
+    <div style="font-size:78px"><span data-in="6.3" data-from="bottom" data-dist="30">алады</span></div>
+  </div>
+</section>
+
+<!-- 2. МҮМКІНДІКТЕР 6.9–18.9: весь экран, график, таблица слева, текст справа, Claude в центре -->
+<section class="scene" data-piece="02_timeline" data-s="6.9" data-e="18.9" data-kind="full" data-bg="black" data-sfx="whoosh" data-vol="0.15">
+  <div class="v-bg"></div>
+  <svg class="chart" viewBox="0 0 1920 1080" preserveAspectRatio="none"><defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7eb6" stop-opacity=".22"/><stop offset="1" stop-color="#ff7eb6" stop-opacity="0"/></linearGradient></defs>
+    <path id="area" fill="url(#ar)"/><path id="line" fill="none" stroke="#ff7eb6" stroke-opacity=".55" stroke-width="3"/></svg>
+  <div class="tbl" data-out="7.5">
+    <div class="hd" data-in="0.2">Кезінде шықты</div>
+    <div class="tr" data-in="0.72" data-from="left" data-dist="40" data-sfx="pop" data-vol="0.12" data-miss="2.96"><div class="ic" style="background:#f14635">K</div><div class="t">Kaspi<small>сатушыларға дүкен</small></div><div class="st" data-in="2.96">бастамадың</div></div>
+    <div class="tr" data-in="2.16" data-from="left" data-dist="40" data-sfx="pop" data-vol="0.12" data-miss="2.96"><div class="ic" style="background:#5b5bd6">M</div><div class="t">Маркетплейс<small>онлайн сауда</small></div><div class="st" data-in="2.96">бастамадың</div></div>
+    <div class="tr" data-in="3.82" data-from="left" data-dist="40" data-sfx="pop" data-vol="0.12" data-miss="4.6"><div class="ic" style="background:#a316a0;font-size:22px">WB</div><div class="t">Wildberries<small>Қазақстанға келді</small></div><div class="st" data-in="4.6">бастамадың</div></div>
+    <div class="tr" data-in="5.46" data-from="left" data-dist="40" data-sfx="pop" data-vol="0.12" data-miss="6.08"><div class="ic" style="background:#2c2c2e;font-size:22px">AI</div><div class="t">ИИ<small>ChatGPT, нейросеттер</small></div><div class="st" data-in="6.08">бастамадың</div></div>
+  </div>
+  <div class="rblk" data-in="0.72" data-out="2.05">Kaspi<br>шықты</div>
+  <div class="rblk" data-in="2.16" data-out="3.72">Маркет&shy;плейс шықты<span class="pk" data-in="2.96">бастамадың</span></div>
+  <div class="rblk" data-in="3.82" data-out="5.36">Wildberries шықты<span class="pk" data-in="4.6">бастамадың</span></div>
+  <div class="rblk" data-in="5.46" data-out="7.5">ИИ<br>шықты<span class="pk" data-in="6.08">бастамадың</span></div>
+  <div class="mid" style="top:330px" data-in="7.76" data-dur="0.8" data-sfx="hit" data-vol="0.35">
+    <div class="nm"><span class="star" data-star></span> Claude</div>
+    <div class="sl" data-in="9.66">моментті жіберіп алма</div>
+  </div>
+</section>
+
+<!-- 3. МОНТАЖ 18.8–26.1: весь экран, настоящие окна без рамок с искривлением -->
+<section class="scene" data-piece="03_montage" data-s="18.8" data-e="26.1" data-sfx="whoosh" data-vol="0.15">
+  <div class="shade"></div>
+  <div class="fw" data-in="0.9" data-from="right" data-dist="120" data-dur="0.9" data-tilt="-14" data-drift="-15,0" data-sfx="whoosh" data-vol="0.12" style="left:1070px;top:610px;width:810px"><img src="media/ref/capcut_tl.png"></div>
+  <div class="chip" data-in="1.4" data-pop data-sfx="pop" data-vol="0.13" style="left:1090px;top:500px"><span class="star" style="width:30px;height:30px" data-star></span> Claude Code монтаж жасап жатыр…</div>
+  <div class="cap3" style="left:1090px;top:120px"><span data-in="0.76" data-from="bottom" data-dist="30" style="display:inline-block">Монтаж</span></div>
+  <div class="cap3" style="left:1090px;top:220px"><span data-in="2.04" data-from="bottom" data-dist="30" style="display:inline-block">Эффекттер</span></div>
+  <div class="cap3 pk" style="left:1090px;top:320px;font-size:70px"><span data-in="3.62" data-from="bottom" data-dist="30" style="display:inline-block">Клиенттің ТЗ-сы</span></div>
+</section>
+
+<!-- 4. РАСХОДЫ 26.2–33.1: как «35+» — 21 переключатель, в конце только $20 -->
+<section class="scene" data-piece="04_costs" data-s="26.2" data-e="33.1" data-kind="full" data-bg="black" data-sfx="whoosh" data-vol="0.15">
+  <div class="v-bg"></div>
+  <div class="bign" data-in="0.4" data-out="4.9"><span data-count="20" data-cin="0.4" data-cdur="1.6" data-fmt="plain">0</span><span class="pk">+</span></div>
+  <div class="bigl" data-in="0.6" data-out="4.9">шығын — эксперт<br>продакшнға</div>
+  <div class="bign pk" data-in="5.64" data-pop data-sfx="hit" data-vol="0.35" style="font-size:300px">$20</div>
+  <div class="bigl" data-in="5.9" style="color:#fff">айына · бәрі<br>Claude-та</div>
+  <div class="grid" id="grid" data-in="0" data-dur="0.01" data-tilt="-9"></div>
+</section>
+
+<!-- 5. ОРБИТА 33.1–44.2: справа Claude и окна, ниже 600 000 ₸ → $20 и месяцы -->
+<section class="scene" data-piece="05_orbit" data-s="33.1" data-e="44.2" data-sfx="none">
+  <div class="shade"></div>
+  <div class="ringo" data-in="0.5" style="left:1470px;top:320px;width:560px;height:250px"></div>
+  <div class="cic" id="cic" data-in="0.66" data-pop data-sfx="whoosh" data-vol="0.15" style="left:1470px;top:320px" data-star></div>
+  <div class="mn sat" data-at="3.72"><div class="mh">Монтаж</div><div class="trk"><div style="width:92%;background:#5e5ce6"></div><div style="width:70%;margin-left:12%;background:#30b0c7"></div><div style="width:84%;background:#ff9f0a"></div><div style="width:55%;margin-left:30%;background:#34c759"></div></div></div>
+  <div class="mn sat" data-at="4.56"><div class="mh">Таблица · Клиенттер</div><table><tr><td>Клиент</td><td>Рилс</td><td>Статус</td></tr><tr><td>Айгерім</td><td>3</td><td>✓ төленді</td></tr><tr><td>Нұрлан</td><td>5</td><td>✓ дайын</td></tr></table></div>
+  <div class="mn sat" data-at="5.44"><div class="mh">Автоматизация</div><div class="flow"><span>Instagram</span>→<span style="background:#4a2a20;color:#ffb08f">Claude</span>→<span>Telegram</span></div></div>
+  <div class="old" data-in="0.3" data-from="bottom" data-dist="30" data-sfx="pop" data-vol="0.12" id="old">600 000 ₸<small>продакшн / ай</small><i class="ln" id="oln"></i></div>
+  <div class="new" data-in="2.08" data-pop data-sfx="hit" data-vol="0.3">$20<small>айына</small></div>
+  <div class="months" data-in="2.4" id="months"><div class="yr">2026</div><div class="base"></div><div class="fill" id="mfill"></div><i class="dot" id="mdot"></i></div>
+  <i data-in="3.72" data-sfx="pop" data-vol="0.12"></i><i data-in="4.56" data-sfx="pop" data-vol="0.12"></i><i data-in="5.44" data-sfx="pop" data-vol="0.12"></i>
+  <i data-in="8.5" data-sfx="whoosh" data-vol="0.14"></i><i data-in="9.35" data-sfx="ding" data-vol="0.13"></i>
+</section>
+
+<!-- 6. ПРОМПТЫ 44.2–51.6: поле ввода Claude, шаг за шагом -->
+<section class="scene" data-piece="06_prompts" data-s="44.2" data-e="51.6" data-sfx="none">
+  <div class="shade"></div>
+  <div class="step pk" data-in="0.88" data-out="2.5" data-from="bottom" data-dist="30">Дұрыс скилл</div>
+  <div class="step pk" data-in="2.56" data-out="4.2" data-from="bottom" data-dist="30">Дұрыс промпт</div>
+  <div class="step pk" data-in="4.24" data-out="6.3" data-from="bottom" data-dist="30">Дұрыс правка</div>
+  <div class="step wh" data-in="6.48" data-from="bottom" data-dist="30">Болғаны.</div>
+  <div class="bub" data-b="0"><b>1</b></div><div class="bub" data-b="1"><b>2</b></div><div class="bub" data-b="2"><b>3</b></div>
+  <div class="ibox" data-in="0.1" data-from="bottom" data-dist="60" data-sfx="whoosh" data-vol="0.14">
+    <div class="tx" id="tx"></div>
+    <div class="bp">⏩ Bypass permissions</div><div class="op">Opus</div><div class="sd" id="sd">↑</div>
+  </div>
+  <div class="reply" data-in="6.5" data-pop data-sfx="ding" data-vol="0.13" style="top:920px">✻ Дайын — 3 правка енгізілді</div>
+</section>
+
+<!-- 7. CTA 52.1–56.77: настоящие комментарии -->
+<section class="scene" data-piece="07_cta" data-s="52.1" data-e="56.77" data-sfx="none">
+  <div class="shade"></div>
+  <div class="rt" style="top:60px">
+    <div style="font-size:70px"><span data-in="1.52" data-from="bottom" data-dist="30" data-sfx="whoosh" data-vol="0.14">Комментке</span></div>
+    <div class="pk" style="font-size:66px;white-space:nowrap"><span data-in="2.04" data-pop data-sfx="pop" data-vol="0.14">«Claude» деп жаз</span></div>
+  </div>
+  <div class="fw" data-in="0.3" data-from="right" data-dist="120" data-dur="0.8" data-tilt="-12" data-sfx="whoosh" data-vol="0.14" style="left:1210px;top:270px;width:600px"><img src="media/ref/ig.png"></div>
+  <div class="rt" style="top:900px;font-size:52px;text-transform:none;font-family:H;font-weight:700"><span data-in="3.54" data-from="bottom" data-dist="20" data-sfx="ding" data-vol="0.13">толық инструкция — директте</span></div>
+</section>
+
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+$$('[data-star]').forEach(el => el.innerHTML = $('#star').innerHTML);
+// сетка расходов
+const COSTS = [['Студия','Студия жалдау','60 000'],['Техника','Камера жалдау','40 000'],['Техника','Объектив','15 000'],['Дыбыс','Петличка','8 000'],['Жарық','Жарық жалдау','25 000'],['Студия','Фон, декор','10 000'],
+ ['Команда','Видеограф','100 000'],['Команда','Монтажер','80 000'],['Пост','Цветокор','30 000'],['Пост','Дыбыс өңдеу','20 000'],['Пост','Субтитрлер','15 000'],['Дизайн','Обложка','10 000'],
+ ['Команда','Сценарист','50 000'],['Команда','Гример','20 000'],['Пост','Правкалар','25 000'],['Жол','Такси, жол','8 000'],['Уақыт','Асығыс дедлайн','30 000'],['Уақыт','Видеографты күту','15 000'],
+ ['Техника','Жад картасы','5 000'],['Дизайн','Моушн-дизайн','60 000'],['Команда','Продюсер','70 000']];
+$('#grid').innerHTML = COSTS.map(([c, n, p], i) => `<div class="card" data-in="${(0.3 + i * 0.17).toFixed(2)}" data-from="bottom" data-dist="30" data-dur="0.5"><div class="c">${c}</div><div class="n">${n}</div><div class="p">${p} ₸</div><span class="tg" data-k="${i}"><i></i></span></div>`).join('');
+// месяцы
+const MS = ['қаң','ақп','нау','сәу','мам','мау','шіл','там','қыр','қаз','қар','жел'];
+$('#months').insertAdjacentHTML('beforeend', MS.map((m, i) => `<span class="m" style="left:${(4 + i * 7.7).toFixed(1)}%">${m}</span>`).join(''));
+const PROMPTS = [[0.9, 1.9, 2.0, '/clean-cut нарежь паузы и дубли в C3809.MP4'], [2.6, 3.9, 4.0, 'Смонтируй 16:9: хук справа, Gotham, белый + розовый'], [4.3, 5.6, 5.7, 'Правка: на 0:12 подними титр выше и крупнее']];
+$$('.bub').forEach((b, i) => b.insertAdjacentText('beforeend', PROMPTS[i][3]));
+const sceneOf = el => +el.closest('.scene').dataset.s;
+window.onFrame = (t, { clamp, ease, inout }) => {
+  // 2: качающийся график, в конце взлетает
+  const lt2 = t - 6.9, rise = inout((lt2 - 7.6) / 1.5);
+  let d = '';
+  for (let i = 0; i <= 48; i++) { const x = i * 40, k = i / 48;
+    const y = 820 - 140 * k - 60 * Math.sin(k * 7 + lt2 * 0.9) * (1 - rise * 0.6) - 30 * Math.sin(k * 17 + lt2 * 1.7) - rise * 520 * Math.pow(k, 3);
+    d += (i ? 'L' : 'M') + x + ' ' + y.toFixed(1) + ' '; }
+  $('#line').setAttribute('d', d); $('#area').setAttribute('d', d + 'L1920 1080 L0 1080 Z');
+  $$('[data-miss]').forEach(c => { const p = ease((t - sceneOf(c) - +c.dataset.miss) / 0.4); c.querySelector('.t').style.opacity = (1 - 0.6 * p).toFixed(3); });
+  // 4: переключатели включаются при появлении, выключаются волной на «шығындалмау»
+  const t4 = t - 26.2;
+  $$('.tg').forEach(g => { const k = +g.dataset.k, on = ease((t4 - (0.55 + k * 0.17)) / 0.2) * (1 - ease((t4 - (4.64 + k * 0.035)) / 0.2));
+    g.style.background = `rgb(${Math.round(58 - 10 * on)},${Math.round(58 + 151 * on)},${Math.round(60 + 28 * on)})`; g.firstChild.style.left = (3 + 26 * on).toFixed(1) + 'px';
+    g.parentElement.style.opacity = (1 - 0.55 * ease((t4 - 4.9) / 0.5)).toFixed(3); });
+  // 5: орбита, зачёркивание 600 000, месяцы
+  const ot = t - 33.1, col = 1 - inout((ot - 8.56) / 0.8);
+  $$('.sat').forEach((s, i) => { const th = ot * 0.5 + i * 2.094 + 0.6, sn = Math.sin(th), app = ease((ot - +s.dataset.at) / 0.6);
+    s.style.left = (1470 + 280 * Math.cos(th) * col).toFixed(1) + 'px'; s.style.top = (320 + 125 * sn * col).toFixed(1) + 'px';
+    s.style.transform = `scale(${((0.78 + 0.22 * (sn + 1) / 2) * (0.85 + 0.15 * app) * (0.25 + 0.75 * col)).toFixed(3)})`;
+    s.style.opacity = (app * col).toFixed(3); s.style.zIndex = sn > 0 ? 3 : 1; s.style.filter = sn < -0.2 ? `blur(${((-sn - 0.2) * 2.5).toFixed(1)}px)` : ''; });
+  $('#cic').style.zIndex = 2; const pu = Math.max(0, 1 - Math.abs(ot - 9.4) / 0.4);
+  $('#cic').style.boxShadow = `0 30px 60px rgba(0,0,0,.5), 0 0 ${(80 * pu).toFixed(0)}px rgba(224,122,85,${(0.8 * pu).toFixed(2)})`;
+  const sp = inout((ot - 1.9) / 0.35); $('#oln').style.width = (sp * 104).toFixed(1) + '%'; $('#old').style.color = sp > 0.5 ? 'rgba(255,255,255,.35)' : '#fff';
+  const mf = inout((ot - 2.4) / 1.6) * (4 + 10 * 7.7) ; $('#mfill').style.width = mf.toFixed(2) + '%'; $('#mdot').style.left = mf.toFixed(2) + '%';
+  $$('.months .m').forEach((m, i) => { m.style.color = i === 10 && ot > 4 ? '#fff' : ''; });
+  // 6: печать промптов, отправленные — пузырями сверху
+  const t6 = t - 44.2; let cur = '', typing = false, sent = 0;
+  PROMPTS.forEach(([a, b, s, txt]) => { if (t6 >= s) sent++; else if (t6 >= a) { cur = txt.slice(0, Math.round(txt.length * clamp((t6 - a) / (b - a)))); typing = true; } });
+  $('#tx').innerHTML = cur + (typing || Math.floor(t6 * 2) % 2 ? '<i></i>' : '');
+  $('#sd').style.background = cur ? '#e07a55' : '#3a3a3c';
+  $$('.bub').forEach((bb, i) => { const s = PROMPTS[i][2], p = ease((t6 - s) / 0.35), rank = sent - 1 - i;
+    bb.style.opacity = t6 >= s ? p.toFixed(3) : 0; bb.style.top = (590 - rank * 120 + (1 - p) * 60).toFixed(1) + 'px'; bb.style.right = '50px'; });
+};
+</script>
+<script src="engine.js"></script>
+</body></html>
