@@ -1,0 +1,103 @@
+/* «Окна в комнате» — кадр 1920×1080. Тёмный интерфейс поверх тёплой комнаты, один акцент. */
+@font-face { font-family: Inter; src: url(a/Inter.ttf); font-weight: 100 900; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+body { font-family: Inter, sans-serif; position: relative; -webkit-font-smoothing: antialiased; color: var(--ink);
+  --ink: #f5f5f7; --soft: #9a9aa2; --acc: #E26D46; --good: #22C55E; --bad: #EF4444; --blue: #3B82F6;
+  --win: #141416; --winbar: #1d1d20; --line: rgba(255,255,255,.09); --shadow: 0 40px 90px rgba(0,0,0,.45), 0 8px 24px rgba(0,0,0,.3);
+  --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; }
+
+.scene { position: absolute; inset: 0; overflow: hidden; display: none; }
+.cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.abs, .win, .tag, .big, .chrome, .label, .note, .pill, .phone, .word, .btn, .ico, .stack { position: absolute; }
+.center { left: 50%; translate: -50% 0; }
+
+/* ФОН полноэкранной вставки (data-kind="full"): dark — почти чёрный с мягким светом, black — чистый, grid — с точками */
+.bg { position: absolute; inset: 0; }
+.bg.dark { background: radial-gradient(60% 55% at 50% 45%, #1c1c20 0, #0b0b0d 70%, #060607 100%); }
+.bg.black { background: #050506; }
+.bg.grid { background: radial-gradient(circle at 1px 1px, rgba(255,255,255,.07) 1px, transparent 0) 0 0/28px 28px, radial-gradient(60% 55% at 50% 45%, #18181b 0, #08080a 75%); }
+.bg.warm { background: radial-gradient(55% 50% at 50% 50%, rgba(226,109,70,.20) 0, transparent 70%), #0b0a0a; }
+
+/* ОКНО macOS: <div class="win" data-title="Claude Code" style="left;top;width;height"> … </div> */
+.win { background: var(--win); border-radius: 14px; box-shadow: var(--shadow); border: 1px solid var(--line); overflow: hidden; display: flex; flex-direction: column; }
+.win .bar { flex: none; height: 38px; background: var(--winbar); display: flex; align-items: center; gap: 8px; padding: 0 14px; border-bottom: 1px solid var(--line); }
+.win .bar i { width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; }
+.win .bar i:nth-child(2) { background: #febc2e; } .win .bar i:nth-child(3) { background: #28c840; }
+.win .bar span { flex: 1; text-align: center; margin-right: 52px; font-size: 15px; font-weight: 500; color: var(--soft); letter-spacing: .02em; }
+.win .body { position: relative; flex: 1; background: var(--win); overflow: hidden; }
+.win .body > img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.win.clip { border-radius: 14px 14px 4px 4px; background: transparent; }
+.win.light { --win: #fbfbfc; --winbar: #ececef; --line: rgba(0,0,0,.08); color: #1d1d1f; }
+.win.light .bar span { color: #6e6e73; }
+
+/* СОДЕРЖИМОЕ ОКНА: терминал, файлы, список */
+.term { padding: 26px 30px; font: 400 22px/1.6 var(--mono); color: #d7d7db; }
+.term .p { color: var(--acc); } .term .ok { color: var(--good); } .term .dim { color: #6b6b73; } .term .cy { color: #06B6D4; }
+.files { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: 26px 18px; padding: 30px; }
+.file { text-align: center; font-size: 15px; color: #c9c9cf; }
+.file::before { content: ''; display: block; width: 58px; height: 72px; margin: 0 auto 10px; border-radius: 6px 18px 6px 6px; background: linear-gradient(#f4f4f6, #d9d9de); box-shadow: 0 6px 14px rgba(0,0,0,.3); }
+.file.dir::before { width: 78px; height: 60px; border-radius: 8px; background: linear-gradient(#7cc4ff, #3d8fe6); }
+.rows { padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+.rowi { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 20px; border-radius: 12px; background: rgba(255,255,255,.04); font-size: 20px; color: #e4e4e8; }
+.toggle { flex: none; width: 46px; height: 26px; border-radius: 13px; background: #3a3a40; position: relative; }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; }
+.toggle.on { background: var(--good); } .toggle.on::after { left: 23px; }
+
+/* ПЛАШКА-ГЛАВА в углу: <div class="tag" style="left:48px;top:40px"><b>2</b>Железное правило</div> */
+.tag { display: flex; align-items: center; gap: 14px; padding: 8px 20px 8px 8px; border-radius: 14px; background: rgba(20,20,22,.78); backdrop-filter: blur(14px); border: 1px solid var(--line); font: 600 24px/1 Inter; color: var(--ink); white-space: nowrap; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.tag b { display: grid; place-items: center; min-width: 38px; height: 38px; padding: 0 8px; border-radius: 9px; background: var(--ink); color: #111; font-weight: 800; font-size: 22px; }
+.tag.acc b { background: var(--acc); color: #fff; }
+.tag .bars { display: flex; align-items: flex-end; gap: 3px; height: 24px; padding-left: 8px; }
+.tag .bars i { width: 6px; background: var(--soft); border-radius: 1px; } .tag .bars i.on { background: var(--ink); }
+
+/* ОГРОМНАЯ ЦИФРА / СЧЁТЧИК: <div class="big center" style="top:380px"><span data-count="600000" data-in="0">0</span> ₽</div> */
+.big { font-weight: 800; font-size: 190px; line-height: 1; letter-spacing: -.035em; color: var(--ink); white-space: nowrap; text-align: center; font-variant-numeric: tabular-nums; }
+.big.m { font-size: 130px; } .big.s { font-size: 84px; }
+.sub { position: absolute; font-size: 26px; font-weight: 500; color: var(--soft); text-align: center; white-space: nowrap; letter-spacing: .01em; }
+
+/* ХРОМОВАЯ ЦИФРА ГЛАВЫ: <div class="chrome center" data-in="0.1" data-from="spin">2</div> */
+.chrome { font-weight: 900; font-size: 560px; line-height: 1; letter-spacing: -.04em; top: 200px;
+  background: linear-gradient(175deg, #ffffff 0%, #e6e6ea 30%, #8d8d96 48%, #f4f4f6 56%, #a3a3ab 78%, #e9e9ed 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 30px 50px rgba(0,0,0,.6)); }
+.chrome-cap { position: absolute; top: 790px; font-weight: 700; font-size: 54px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+
+/* ПОДПИСЬ В КОМНАТЕ (привязана к предмету, напр. ступенькам): <div class="label" style="left;top"><b>1</b>первый день</div> */
+.label { display: flex; align-items: flex-end; gap: 12px; font-size: 22px; font-weight: 500; color: #1a1a1c; white-space: nowrap; }
+.label b { font-size: 92px; font-weight: 800; line-height: .8; letter-spacing: -.03em; }
+.label.light { color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,.45); }
+
+/* ГИГАНТСКОЕ СЛОВО в пустой части комнаты: <div class="word" style="left:60px;top:300px">ПРОДВИНУТЫЙ</div> */
+.word { font-weight: 900; font-size: 260px; line-height: .9; letter-spacing: -.03em; color: #161618; white-space: nowrap; text-transform: uppercase; }
+.word.light { color: #fff; text-shadow: 0 10px 40px rgba(0,0,0,.35); }
+
+/* УВЕДОМЛЕНИЯ стопкой: <div class="note" style="left;top" data-in="0.3"><img src="a/icons/bell.png"><div><b>Заголовок</b>текст</div></div> */
+.note { display: flex; align-items: center; gap: 16px; width: 520px; padding: 18px 22px; border-radius: 22px; background: rgba(28,28,32,.82); backdrop-filter: blur(20px); border: 1px solid var(--line); box-shadow: var(--shadow); font-size: 20px; line-height: 1.3; color: #cfcfd5; }
+.note img { width: 52px; height: 52px; border-radius: 12px; flex: none; object-fit: contain; }
+.note b { display: block; color: var(--ink); font-size: 21px; }
+
+/* ПИЛЮЛЯ: <div class="pill" style="left;top">35+ автоматизаций</div>  .acc / .good / .bad */
+.pill { padding: 14px 26px; border-radius: 40px; font-weight: 600; font-size: 26px; background: rgba(20,20,22,.8); backdrop-filter: blur(14px); color: var(--ink); border: 1px solid var(--line); white-space: nowrap; display: flex; align-items: center; gap: 12px; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+.pill.acc { background: var(--acc); border-color: transparent; } .pill.good { background: var(--good); color: #052e14; border-color: transparent; } .pill.bad { background: var(--bad); border-color: transparent; }
+.pill img { width: 34px; }
+
+/* КНОПКА CTA: <div class="btn center" style="top:760px">Вступить за 2 990 ₽ в месяц</div> */
+.btn { padding: 24px 46px; border-radius: 16px; background: var(--good); color: #04210f; font-weight: 700; font-size: 32px; white-space: nowrap; box-shadow: 0 0 60px rgba(34,197,94,.35); }
+
+/* ТЕЛЕФОН: <div class="phone" style="left;top;width:380px"><div class="screen"><img src="media/app.png"></div></div> */
+.phone { width: 380px; aspect-ratio: 9 / 19.5; border-radius: 58px; padding: 12px; background: linear-gradient(145deg, #3a3a40, #121214); box-shadow: var(--shadow), inset 0 0 0 2px rgba(255,255,255,.12); }
+.phone::before { content: ''; position: absolute; top: 26px; left: 50%; translate: -50% 0; width: 30%; height: 30px; border-radius: 16px; background: #000; z-index: 3; }
+.phone .screen { position: relative; width: 100%; height: 100%; border-radius: 46px; overflow: hidden; background: #0d0d0f; }
+.phone .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ЛЕНТА ИКОНОК / СЕТКА: <div class="stack center" style="top:640px"><img class="ico" …>…</div> */
+.stack { display: flex; gap: 22px; align-items: center; }
+.stack .ico, .stack img { position: static; width: 84px; height: 84px; border-radius: 20px; object-fit: contain; }
+.ico { width: 110px; filter: drop-shadow(0 18px 24px rgba(0,0,0,.35)); }
+
+/* ПОЛОСА: <div class="track" style="left;top;width"><div class="bar-fill" data-fill=".72" data-in="0.5"></div></div> */
+.track { position: absolute; height: 18px; border-radius: 9px; background: rgba(255,255,255,.08); overflow: hidden; }
+.bar-fill { height: 100%; width: 0; border-radius: 9px; background: linear-gradient(90deg, #8b5cf6, var(--acc)); }
+
+.acc-t { color: var(--acc); } .good-t { color: var(--good); } .bad-t { color: var(--bad); } .soft-t { color: var(--soft); }
+.mono { font-family: var(--mono); }
