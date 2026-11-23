@@ -10,7 +10,7 @@ export const CREAM = "#F6EBD6";
 
 // ---------- fonts (all free, OFL licence) ----------
 const FONTS: [string, string, string][] = [
-  ["Head", "fonts/Bebas.otf", "700"],                 // Bebas Neue (PROXIMA)
+  ["Head", "fonts/Oswald.ttf", "200 700"],         // Oswald — казахские буквы (Bebas их не имеет)
   ["Script", "fonts/Marck.ttf", "normal"],            // Marck Script (PROXIMA)
   ["ScriptKz", "fonts/LoraItalic.ttf", "normal"],
   ["Mont", "fonts/MontXB.ttf", "600"],
